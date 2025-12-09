@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太原驰昊网络科技有限公司 | 极致UI/UX体验设计</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans SC"', 'sans-serif'],
+                    },
+                    colors: {
+                        chihao: {
+                            dark: '#0f172a',
+                            light: '#1e293b',
+                            accent: '#34d399', // Emerald
+                            purple: '#a78bfa',
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "url('https://picsum.photos/id/48/1920/1080?grayscale&blur=2')",
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(52, 211, 153, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(52, 211, 153, 0.15);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #34d399 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Hide scrollbar for gallery but keep function */
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden">
+
+    <!-- 1. 顶部导航 (Sticky Header) -->
+    <header class="fixed w-full top-0 z-50 glass-nav transition-all duration-300">
+        <div class="container mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-purple-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                    C
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-bold tracking-wider text-white">CHIHAO</span>
+                    <span class="text-xs text-gray-400 tracking-widest uppercase">Technology</span>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-300">
+                <a href="#home" class="hover:text-emerald-400 transition-colors">首页</a>
+                <a href="#services" class="hover:text-emerald-400 transition-colors">解决方案</a>
+                <a href="#portfolio" class="hover:text-emerald-400 transition-colors">设计案例</a>
+                <a href="#process" class="hover:text-emerald-400 transition-colors">服务流程</a>
+                <a href="#about" class="hover:text-emerald-400 transition-colors">关于驰昊</a>
+            </nav>
+
+            <a href="#contact" class="hidden md:flex px-6 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full text-sm font-semibold transition-all shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                立即咨询
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white text-2xl">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- 2. Hero Section (首屏视觉) -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 bg-hero-pattern bg-cover bg-center opacity-20"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/80 to-transparent"></div>
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500 rounded-full mix-blend-screen filter blur-[128px] opacity-20"></div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="inline-block px-4 py-1.5 mb-6 border border-emerald-500/30 rounded-full bg-emerald-900/10 backdrop-blur-sm">
+                <span class="text-emerald-400 text-xs font-bold tracking-wider uppercase">定义数字未来 · 太原驰昊</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight">
+                我们创造 <br/>
+                <span class="text-gradient">触动人心的数字体验</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                太原驰昊致力于将商业逻辑转化为极致的视觉语言。我们不仅仅设计界面，更在构建品牌与用户之间的深度情感连接。
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#portfolio" class="px-8 py-4 bg-white text-slate-900 rounded-lg font-bold hover:bg-gray-100 transition-colors flex items-center justify-center gap-2">
+                    探索案例 <i class="ph-bold ph-arrow-right"></i>
+                </a>
+                <a href="#contact" class="px-8 py-4 border border-white/20 hover:border-emerald-400 hover:text-emerald-400 text-white rounded-lg font-bold transition-all backdrop-blur-sm">
+                    开启项目合作
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gray-500">
+            <i class="ph ph-caret-double-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- 3. 品牌标语 (Marquee/Slogan) -->
+    <div class="border-y border-white/5 bg-slate-900/50 py-8">
+        <div class="container mx-auto px-6 flex flex-wrap justify-between items-center gap-8 text-gray-500 font-bold uppercase tracking-widest text-sm md:text-base">
+            <span class="flex items-center gap-2"><i class="ph-fill ph-star text-emerald-500"></i> 用户体验至上</span>
+            <span class="flex items-center gap-2"><i class="ph-fill ph-bezier-curve text-purple-500"></i> 像素级精度</span>
+            <span class="flex items-center gap-2"><i class="ph-fill ph-lightning text-yellow-500"></i> 敏捷开发</span>
+            <span class="flex items-center gap-2"><i class="ph-fill ph-globe text-blue-500"></i> 全球化视野</span>
+        </div>
+    </div>
+
+    <!-- 4. 核心业务简介 (Intro Grid) -->
+    <section class="py-24 bg-[#0f172a]">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">让设计成为<br><span class="text-emerald-400">商业增长</span>的驱动力</h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        在信息爆炸的时代，用户的注意力是稀缺资源。太原驰昊网络科技有限公司专注于通过卓越的 UI/UX 设计，帮助企业在激烈的数字竞争中脱颖而出。
+                    </p>
+                    <p class="text-gray-400 mb-8 leading-relaxed">
+                        我们位于山西太原，但我们的视野并不局限于此。我们融合前沿的技术趋势与本土市场洞察，为客户提供具有前瞻性的数字解决方案。
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-emerald-400 text-xl"></i>
+                            <span>深度用户行为分析</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-emerald-400 text-xl"></i>
+                            <span>全平台响应式适配</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-300">
+                            <i class="ph-fill ph-check-circle text-emerald-400 text-xl"></i>
+                            <span>品牌视觉识别系统重塑</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-purple-600 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
+                    <img src="https://picsum.photos/id/3/800/600" alt="Creative Workspace" class="relative rounded-2xl shadow-2xl border border-white/10 w-full object-cover">
+                    <!-- Floater Card -->
+                    <div class="absolute -bottom-6 -left-6 bg-slate-800 p-6 rounded-xl border border-white/10 shadow-xl hidden md:block">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400">
+                                <i class="ph-fill ph-users-three text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold text-white">98%</p>
+                                <p class="text-xs text-gray-400 uppercase tracking-wide">客户满意度</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 详细服务模块 (Service Cards) -->
+    <section id="services" class="py-24 relative">
+        <div class="absolute inset-0 bg-slate-900 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-purple-400 font-semibold tracking-wider text-sm uppercase">Our Expertise</span>
+                <h2 class="text-4xl font-bold mt-2 text-white">全链路数字创新服务</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="glass-card p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 text-blue-400">
+                        <i class="ph-duotone ph-desktop text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">UI/UX 交互设计</h3>
+                    <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+                        基于用户心理模型的设计策略。我们不仅画图，更设计交互逻辑。从低保真原型到高保真视觉稿，确保每一个点击都符合用户预期。
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>• 移动端 App 设计</li>
+                        <li>• B端后台管理系统</li>
+                        <li>• 数据可视化大屏</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-card p-8 rounded-2xl border-emerald-500/30 bg-slate-800/80">
+                    <div class="w-16 h-16 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-6 text-emerald-400">
+                        <i class="ph-duotone ph-code text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">前端开发与落地</h3>
+                    <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+                        所见即所得的还原能力。我们拥有精通 Vue, React 及 Tailwind CSS 的开发团队，确保设计稿100%精准落地，动效流畅自然。
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>• HTML5 响应式网站</li>
+                        <li>• 微信小程序开发</li>
+                        <li>• 交互动效实现</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-card p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 text-purple-400">
+                        <i class="ph-duotone ph-paint-brush-broad text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">品牌数字化重塑</h3>
+                    <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+                        在数字触点上统一品牌声音。我们帮助传统企业进行数字化转型，从 Logo 升级到全套数字媒体规范，建立现代化的品牌形象。
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>• 品牌 VI 系统升级</li>
+                        <li>• 数字营销物料</li>
+                        <li>• 3D 视觉表现</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 数据统计 (Stats Counter) -->
+    <section class="py-16 bg-gradient-to-r from-slate-900 to-slate-800 border-y border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">500<span class="text-emerald-400">+</span></div>
+                    <div class="text-sm text-gray-400">成功交付项目</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">50<span class="text-purple-400">+</span></div>
+                    <div class="text-sm text-gray-400">长期合作企业</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">5<span class="text-blue-400">yr</span></div>
+                    <div class="text-sm text-gray-400">行业深耕经验</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">24<span class="text-yellow-400">/7</span></div>
+                    <div class="text-sm text-gray-400">技术支持响应</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. 设计理念/优势 (Feature Split) -->
+    <section class="py-24 bg-[#0f172a] overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2 order-2 md:order-1">
+                     <img src="https://picsum.photos/id/180/800/600" alt="Design Process" class="rounded-xl shadow-2xl border border-white/10">
+                </div>
+                <div class="w-full md:w-1/2 order-1 md:order-2">
+                    <h3 class="text-3xl font-bold mb-6">不只是好看，更要好用</h3>
+                    <div class="space-y-8">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center text-emerald-400 border border-emerald-500/20">01</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">策略先行</h4>
+                                <p class="text-gray-400 text-sm">在动手设计之前，我们先花时间理解您的业务模式和用户画像，确保设计方向准确无误。</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center text-purple-400 border border-purple-500/20">02</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">情感化设计</h4>
+                                <p class="text-gray-400 text-sm">通过微交互和细腻的视觉层次，让用户在使用产品的过程中感受到愉悦和被尊重。</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex-shrink-0 flex items-center justify-center text-blue-400 border border-blue-500/20">03</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">数据驱动迭代</h4>
+                                <p class="text-gray-400 text-sm">上线不是终点。我们通过数据埋点分析用户行为，持续优化设计，提升转化率。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. 作品展示 (Masonry Portfolio) -->
+    <section id="portfolio" class="py-24 bg-slate-900">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <span class="text-emerald-400 font-semibold tracking-wider text-sm uppercase">Selected Works</span>
+                    <h2 class="text-4xl font-bold mt-2 text-white">精选案例展示</h2>
+                </div>
+                <div class="mt-4 md:mt-0 flex gap-2">
+                    <button class="px-4 py-2 bg-emerald-500 text-white rounded-md text-sm">全部</button>
+                    <button class="px-4 py-2 bg-slate-800 text-gray-400 hover:text-white rounded-md text-sm transition">Web</button>
+                    <button class="px-4 py-2 bg-slate-800 text-gray-400 hover:text-white rounded-md text-sm transition">App</button>
+                    <button class="px-4 py-2 bg-slate-800 text-gray-400 hover:text-white rounded-md text-sm transition">Branding</button>
+                </div>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+                <!-- Item 1 (Large) -->
+                <div class="md:col-span-2 group relative overflow-hidden rounded-xl">
+                    <img src="https://picsum.photos/id/1/1200/800" alt="Project 1" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
+                        <span class="text-emerald-400 text-sm font-bold uppercase mb-2">FinTech App</span>
+                        <h3 class="text-2xl font-bold text-white">智汇金融移动端重构</h3>
+                    </div>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="group relative overflow-hidden rounded-xl">
+                    <img src="https://picsum.photos/id/119/600/600" alt="Project 2" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
+                        <span class="text-purple-400 text-sm font-bold uppercase mb-2">E-Commerce</span>
+                        <h3 class="text-xl font-bold text-white">跨境电商独立站设计</h3>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="group relative overflow-hidden rounded-xl">
+                    <img src="https://picsum.photos/id/201/600/600" alt="Project 3" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
+                        <span class="text-blue-400 text-sm font-bold uppercase mb-2">SaaS Dashboard</span>
+                        <h3 class="text-xl font-bold text-white">企业数据中台界面</h3>
+                    </div>
+                </div>
+
+                <!-- Item 4 (Large) -->
+                <div class="md:col-span-2 group relative overflow-hidden rounded-xl">
+                    <img src="https://picsum.photos/id/250/1200/800" alt="Project 4" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
+                        <span class="text-yellow-400 text-sm font-bold uppercase mb-2">Smart Home</span>
+                        <h3 class="text-2xl font-bold text-white">智能家居物联网控制中心</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. 客户评价 (Testimonials) -->
+    <section class="py-24 bg-[#0f172a] relative overflow-hidden">
+        <!-- Decorative Circle -->
+        <div class="absolute -right-20 top-40 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-16">客户如何评价我们</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-800 p-8 rounded-2xl relative text-left">
+                    <i class="ph-fill ph-quotes text-4xl text-emerald-500/30 absolute top-6 right-6"></i>
+                    <p class="text-gray-300 mb-6 italic">"驰昊团队的设计审美非常在线，完全超出了我们的预期。他们不仅交付了设计图，还帮助我们梳理了整个产品的交互逻辑，非常专业！"</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://picsum.photos/id/64/100/100" class="w-12 h-12 rounded-full object-cover border-2 border-emerald-500">
+                        <div>
+                            <h4 class="font-bold text-white text-sm">李总</h4>
+                            <p class="text-xs text-gray-500">山西某科技公司 CEO</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800 p-8 rounded-2xl relative text-left transform md:-translate-y-4 shadow-xl border border-emerald-500/20">
+                    <i class="ph-fill ph-quotes text-4xl text-emerald-500/30 absolute top-6 right-6"></i>
+                    <p class="text-gray-300 mb-6 italic">"沟通效率极高，响应速度快。设计的官网改版后，我们的用户停留时间提升了40%。强烈推荐给需要高端定制的企业。"</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://picsum.photos/id/91/100/100" class="w-12 h-12 rounded-full object-cover border-2 border-emerald-500">
+                        <div>
+                            <h4 class="font-bold text-white text-sm">张经理</h4>
+                            <p class="text-xs text-gray-500">知名连锁品牌 市场总监</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800 p-8 rounded-2xl relative text-left">
+                    <i class="ph-fill ph-quotes text-4xl text-emerald-500/30 absolute top-6 right-6"></i>
+                    <p class="text-gray-300 mb-6 italic">"非常注重细节，图标和配色都经过精心打磨。合作过程很愉快，是太原本地难得的具有一线城市设计水准的团队。"</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://picsum.photos/id/338/100/100" class="w-12 h-12 rounded-full object-cover border-2 border-emerald-500">
+                        <div>
+                            <h4 class="font-bold text-white text-sm">王工</h4>
+                            <p class="text-xs text-gray-500">软件项目负责人</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. 服务流程 (Process Timeline) -->
+    <section id="process" class="py-24 bg-slate-900 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">标准化的作业流程</h2>
+                <p class="text-gray-400 mt-4">科学的项目管理，确保按时按质交付</p>
+            </div>
+            
+            <div class="relative">
+                <!-- Line -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-700 -translate-y-1/2 z-0"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                    <!-- Step 1 -->
+                    <div class="bg-slate-800 p-6 rounded-xl border border-white/5 text-center group hover:bg-slate-700 transition">
+                        <div class="w-14 h-14 mx-auto bg-slate-900 rounded-full border-2 border-emerald-500 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition bg-slate-800 text-white">1</div>
+                        <h4 class="text-lg font-bold text-white mb-2">需求分析</h4>
+                        <p class="text-sm text-gray-400">竞品分析、用户调研、功能梳理</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="bg-slate-800 p-6 rounded-xl border border-white/5 text-center group hover:bg-slate-700 transition">
+                        <div class="w-14 h-14 mx-auto bg-slate-900 rounded-full border-2 border-emerald-500 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition bg-slate-800 text-white">2</div>
+                        <h4 class="text-lg font-bold text-white mb-2">原型交互</h4>
+                        <p class="text-sm text-gray-400">逻辑架构图、低保真原型演示</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="bg-slate-800 p-6 rounded-xl border border-white/5 text-center group hover:bg-slate-700 transition">
+                        <div class="w-14 h-14 mx-auto bg-slate-900 rounded-full border-2 border-emerald-500 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition bg-slate-800 text-white">3</div>
+                        <h4 class="text-lg font-bold text-white mb-2">视觉设计</h4>
+                        <p class="text-sm text-gray-400">风格设定、UI 界面绘制、规范输出</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="bg-slate-800 p-6 rounded-xl border border-white/5 text-center group hover:bg-slate-700 transition">
+                        <div class="w-14 h-14 mx-auto bg-slate-900 rounded-full border-2 border-emerald-500 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition bg-slate-800 text-white">4</div>
+                        <h4 class="text-lg font-bold text-white mb-2">交付验收</h4>
+                        <p class="text-sm text-gray-400">切图标注、开发支持、上线走查</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. 合作工具墙 (Tech Stack) -->
+    <section class="py-16 bg-[#0f172a]">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-500 mb-8 text-sm tracking-widest uppercase">We speak your language</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <!-- Using Text for Logos to keep it simple and load-free, or icons -->
+                <div class="flex items-center gap-2 text-xl font-bold text-white"><i class="ph-fill ph-figma-logo text-3xl"></i> Figma</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-white"><i class="ph-fill ph-sketch-logo text-3xl"></i> Sketch</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-blue-400"><i class="ph-bold ph-atom text-3xl"></i> React</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-green-400"><i class="ph-bold ph-code text-3xl"></i> Vue.js</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-cyan-400"><i class="ph-bold ph-paint-brush text-3xl"></i> Tailwind</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. 团队文化 (Team/Culture) -->
+    <section class="py-24 bg-slate-900 relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6">年轻、极客、创造力</h2>
+                    <p class="text-gray-400 mb-6">
+                        太原驰昊汇聚了一群热爱设计与技术的年轻人。我们没有繁琐的层级，只有对完美的共同追求。每一个像素的打磨，都是为了让产品更具生命力。
+                    </p>
+                    <a href="#contact" class="text-emerald-400 font-bold hover:text-emerald-300 flex items-center gap-2">加入我们 <i class="ph-bold ph-arrow-right"></i></a>
+                </div>
+                <div class="w-full md:w-1/2 grid grid-cols-2 gap-4">
+                    <img src="https://picsum.photos/id/318/300/400" class="rounded-lg w-full h-48 object-cover">
+                    <img src="https://picsum.photos/id/445/300/400" class="rounded-lg w-full h-48 object-cover mt-8">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. FAQ 常见问题 -->
+    <section class="py-24 bg-[#0f172a]">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl font-bold mb-12 text-center">常见问题解答</h2>
+            <div class="space-y-4">
+                <details class="group bg-slate-800 rounded-lg p-6 [&_summary::-webkit-details-marker]:hidden border border-white/5">
+                    <summary class="flex items-center justify-between cursor-pointer">
+                        <h2 class="font-medium text-white">你们的项目通常周期是多久？</h2>
+                        <span class="ml-1.5 flex-shrink-0 rounded-full bg-slate-700 p-1.5 text-white sm:p-3">
+                            <i class="ph-bold ph-caret-down group-open:rotate-180 transition-transform"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 leading-relaxed text-gray-400 text-sm">
+                        一般企业官网设计开发周期为2-3周，复杂的APP UI设计或系统开发根据功能需求，周期通常在4-8周不等。我们会提供详细的时间进度表。
+                    </p>
+                </details>
+
+                <details class="group bg-slate-800 rounded-lg p-6 [&_summary::-webkit-details-marker]:hidden border border-white/5">
+                    <summary class="flex items-center justify-between cursor-pointer">
+                        <h2 class="font-medium text-white">合作后会提供源文件吗？</h2>
+                        <span class="ml-1.5 flex-shrink-0 rounded-full bg-slate-700 p-1.5 text-white sm:p-3">
+                            <i class="ph-bold ph-caret-down group-open:rotate-180 transition-transform"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 leading-relaxed text-gray-400 text-sm">
+                        是的，项目结款后，我们会交付所有的设计源文件（Figma/Sketch/PSD）以及开发源代码，确保您拥有项目的完整所有权。
+                    </p>
+                </details>
+                
+                <details class="group bg-slate-800 rounded-lg p-6 [&_summary::-webkit-details-marker]:hidden border border-white/5">
+                    <summary class="flex items-center justify-between cursor-pointer">
+                        <h2 class="font-medium text-white">除了设计，你们做开发吗？</h2>
+                        <span class="ml-1.5 flex-shrink-0 rounded-full bg-slate-700 p-1.5 text-white sm:p-3">
+                            <i class="ph-bold ph-caret-down group-open:rotate-180 transition-transform"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 leading-relaxed text-gray-400 text-sm">
+                        当然。我们是设计与技术并重的团队。我们提供从前端交互到后端架构的一站式开发服务，确保设计效果完美还原。
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. 动态/博客预览 (News) -->
+    <section class="py-24 bg-slate-900">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center mb-10">
+                <h2 class="text-3xl font-bold text-white">行业洞察</h2>
+                <a href="#" class="text-emerald-400 text-sm hover:underline">查看更多文章</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <article class="bg-[#0f172a] rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl hover:shadow-emerald-900/20 transition border border-white/5">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/6/600/400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-emerald-400 font-bold uppercase">UI Trends</span>
+                        <h3 class="text-lg font-bold text-white mt-2 mb-3 group-hover:text-emerald-400 transition">2025年B端产品设计趋势预测</h3>
+                        <p class="text-gray-500 text-sm line-clamp-2">随着AI技术的普及，B端界面正变得越来越智能化和轻量化...</p>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="bg-[#0f172a] rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl hover:shadow-emerald-900/20 transition border border-white/5">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/20/600/400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-purple-400 font-bold uppercase">Case Study</span>
+                        <h3 class="text-lg font-bold text-white mt-2 mb-3 group-hover:text-purple-400 transition">如何通过用户体验提升电商转化率？</h3>
+                        <p class="text-gray-500 text-sm line-clamp-2">深度解析我们在最近一个电商项目中，如何通过优化结账流程...</p>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="bg-[#0f172a] rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl hover:shadow-emerald-900/20 transition border border-white/5">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/60/600/400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-blue-400 font-bold uppercase">Company</span>
+                        <h3 class="text-lg font-bold text-white mt-2 mb-3 group-hover:text-blue-400 transition">太原驰昊荣获年度最佳设计团队提名</h3>
+                        <p class="text-gray-500 text-sm line-clamp-2">感谢行业认可，我们将继续在数字化设计的道路上砥砺前行...</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 15. CTA 呼吁行动 -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-800"></div>
+        <div class="absolute inset-0 bg-hero-pattern opacity-10 mix-blend-overlay"></div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">准备好升级您的品牌形象了吗？</h2>
+            <p class="text-emerald-100 text-lg mb-10 max-w-2xl mx-auto">
+                别让糟糕的设计阻碍您的业务发展。现在就联系我们，获取免费的项目评估与报价方案。
+            </p>
+            <a href="#contact" class="inline-block px-10 py-4 bg-white text-emerald-800 font-bold rounded-full text-lg shadow-2xl hover:bg-gray-100 transition transform hover:-translate-y-1">
+                免费获取方案
+            </a>
+        </div>
+    </section>
+
+    <!-- 16. 联系我们 (Contact Form & Info) -->
+    <section id="contact" class="py-24 bg-[#0f172a]">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Info -->
+                <div>
+                    <span class="text-emerald-400 font-bold tracking-widest uppercase text-sm">Contact Us</span>
+                    <h2 class="text-4xl font-bold mt-2 mb-8 text-white">联系 · 合作</h2>
+                    <p class="text-gray-400 mb-12">
+                        无论您是有具体的项目需求，还是仅仅想聊聊想法，都欢迎随时联系我们。
+                    </p>
+
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-emerald-400 text-2xl border border-white/10 shrink-0">
+                                <i class="ph-fill ph-map-pin"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg mb-1">公司地址</h4>
+                                <p class="text-gray-400 text-sm leading-relaxed">山西省太原市迎泽区文庙街道<br>双塔北路8号院1-303室</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-emerald-400 text-2xl border border-white/10 shrink-0">
+                                <i class="ph-fill ph-phone-call"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg mb-1">联系电话</h4>
+                                <p class="text-gray-400 text-sm">18784247774</p>
+                                <p class="text-gray-500 text-xs mt-1">周一至周五 9:00 - 18:00</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-emerald-400 text-2xl border border-white/10 shrink-0">
+                                <i class="ph-fill ph-envelope-simple"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg mb-1">电子邮箱</h4>
+                                <p class="text-gray-400 text-sm">contact@taiyuanchihao.asia</p>
+                                <p class="text-gray-500 text-xs mt-1">通常在 24 小时内回复</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="bg-slate-800 p-8 rounded-2xl border border-white/5 shadow-2xl">
+                    <form onsubmit="event.preventDefault(); alert('感谢您的留言，我们会尽快联系您！');">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-gray-400 text-sm mb-2">您的称呼</label>
+                                <input type="text" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition" placeholder="怎么称呼您">
+                            </div>
+                            <div>
+                                <label class="block text-gray-400 text-sm mb-2">联系电话</label>
+                                <input type="tel" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition" placeholder="您的手机号码">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-400 text-sm mb-2">电子邮箱</label>
+                            <input type="email" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition" placeholder="name@example.com">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-400 text-sm mb-2">需求描述</label>
+                            <textarea rows="4" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition" placeholder="请简单描述您的项目需求..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold py-4 rounded-lg hover:shadow-lg hover:from-emerald-400 hover:to-teal-500 transition duration-300">
+                            发送消息
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 17. 地图占位 (Visual Map) -->
+    <div class="w-full h-80 bg-slate-800 relative grayscale invert-[.8]">
+        <!-- 这里使用图片模拟地图风格，避免引入重型地图API -->
+        <img src="https://picsum.photos/id/175/1920/400" class="w-full h-full object-cover opacity-50">
+        <div class="absolute inset-0 flex items-center justify-center">
+             <div class="bg-emerald-600 text-white px-4 py-2 rounded-lg shadow-lg relative">
+                 <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-emerald-600 rotate-45"></div>
+                 太原驰昊总部
+             </div>
+        </div>
+    </div>
+
+    <!-- 18. 页脚 (Footer) -->
+    <footer class="bg-[#0b1120] pt-16 pb-8 border-t border-white/5 text-sm">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-gradient-to-br from-emerald-400 to-purple-500 rounded flex items-center justify-center text-white font-bold">C</div>
+                        <span class="text-lg font-bold text-white tracking-wider">CHIHAO</span>
+                    </div>
+                    <p class="text-gray-500 leading-relaxed mb-6">
+                        专注于为成长型企业提供高品质的数字化设计与开发服务。让每一次点击都充满价值。
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-gray-400 hover:bg-emerald-500 hover:text-white transition"><i class="ph-fill ph-wechat-logo text-xl"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-gray-400 hover:bg-emerald-500 hover:text-white transition"><i class="ph-fill ph-sina-weibo-logo text-xl"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-gray-400 hover:bg-emerald-500 hover:text-white transition"><i class="ph-fill ph-linkedin-logo text-xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-6">快速导航</h4>
+                    <ul class="space-y-3 text-gray-500">
+                        <li><a href="#home" class="hover:text-emerald-400 transition">首页概览</a></li>
+                        <li><a href="#about" class="hover:text-emerald-400 transition">关于我们</a></li>
+                        <li><a href="#services" class="hover:text-emerald-400 transition">服务体系</a></li>
+                        <li><a href="#portfolio" class="hover:text-emerald-400 transition">精选案例</a></li>
+                        <li><a href="#contact" class="hover:text-emerald-400 transition">联系方式</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-white font-bold mb-6">服务领域</h4>
+                    <ul class="space-y-3 text-gray-500">
+                        <li><a href="#" class="hover:text-emerald-400 transition">移动应用设计</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition">企业官网定制</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition">SaaS 系统界面</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition">品牌 VI 设计</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition">前端交互开发</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Mini -->
+                <div>
+                    <h4 class="text-white font-bold mb-6">联系信息</h4>
+                    <ul class="space-y-3 text-gray-500">
+                        <li>太原驰昊网络科技有限公司</li>
+                        <li>18784247774</li>
+                        <li>contact@taiyuanchihao.asia</li>
+                        <li>山西省太原市迎泽区文庙街道双塔北路8号院1-303室</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600">
+                <p>&copy; 2024 Taiyuan Chihao Network Technology Co., Ltd. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-gray-400">隐私政策</a>
+                    <a href="#" class="hover:text-gray-400">服务条款</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="fixed bottom-8 right-8 w-12 h-12 bg-emerald-500 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-emerald-600 transition-all z-40 opacity-80 hover:opacity-100">
+        <i class="ph-bold ph-arrow-up text-xl"></i>
+    </a>
+
+</body>
+</html>
